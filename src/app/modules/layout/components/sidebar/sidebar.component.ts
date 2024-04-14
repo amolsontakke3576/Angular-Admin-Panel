@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from 'src/app/core/services/theme.service';
 import packageJson from '../../../../../../package.json';
 import { MenuService } from '../../services/menu.service';
 import { RouterLink } from '@angular/router';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NgClass, NgIf } from '@angular/common';
-import { Theme } from 'src/app/core/models/theme.model';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,7 +15,6 @@ import { environment } from 'src/environments/environment';
 })
 export class SidebarComponent implements OnInit {
   public appJson: any = packageJson;
-  public productName = environment.productName;
 
   constructor(public menuService: MenuService) {}
 

@@ -3,6 +3,8 @@ import { ThemeService } from './core/services/theme.service';
 import { RouterOutlet } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { ResponsiveHelperComponent } from './shared/components/responsive-helper/responsive-helper.component';
+import packageJson from 'package.json';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +13,8 @@ import { ResponsiveHelperComponent } from './shared/components/responsive-helper
   imports: [NgClass, RouterOutlet, ResponsiveHelperComponent],
 })
 export class AppComponent {
-  title = 'Angular Tailwind';
+  public appJson: any = packageJson;
+  title = this.appJson.displayName;
 
   constructor(public themeService: ThemeService) {}
 }

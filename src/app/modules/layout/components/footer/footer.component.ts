@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import packageJson from '../../../../../../package.json';
 
 @Component({
   selector: 'app-footer',
@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class FooterComponent implements OnInit {
   public year: number = new Date().getFullYear();
-  public name: string = environment.productName;
-  public publicURL: string = environment.publicPageURL;
+  public appJson: any = packageJson;
+
 
   constructor() {}
 
