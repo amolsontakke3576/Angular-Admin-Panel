@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { PageHeaderComponent } from '../page-header/page-header.component';
 
 @Component({
-  selector: 'app-overview',
+  selector: 'app-settings',
   standalone: true,
   imports: [PageHeaderComponent],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+  templateUrl: './settings.component.html',
+  styleUrl: './settings.component.scss'
 })
-export class OverviewComponent {
+export class SettingsComponent {
 
 }
