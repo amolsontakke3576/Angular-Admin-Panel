@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
+import { LanguageService } from 'src/app/core/services/language.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,7 +18,15 @@ export class SignInComponent implements OnInit {
   submitted = false;
   passwordTextType!: boolean;
 
-  constructor(private readonly _formBuilder: FormBuilder, private readonly _router: Router) {}
+  public language: any;
+
+  private languageService: LanguageService = inject(LanguageService);
+  private _formBuilder: FormBuilder = inject(FormBuilder);
+  private _router: Router = inject(Router);
+
+  constructor() {
+    this.language = this.languageService.languageConstants;
+  }
 
   onClick() {
     console.log('Button clicked');
