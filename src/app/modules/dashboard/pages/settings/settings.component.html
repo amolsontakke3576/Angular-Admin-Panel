@@ -1,4 +1,42 @@
 <div class="mx-auto px-4 py-4 lg:container sm:px-8">
-    <app-page-header title="Settings" breadcrumb="Dashboard - Settings"></app-page-header>
+  <app-page-header title="Settings" breadcrumb="Dashboard - Settings"></app-page-header>
+
+  <div class="my-2">
+    <span class="text-xs font-semibold text-foreground">{{language.selectThemeColor}}</span>
+    <div class="mt-2 flex flex-wrap gap-2">
+      @for (item of themeColors; track $index) {
+      <div
+        :key="$index"
+        (click)="toggleThemeColor(item.name)"
+        [ngClass]="{ 'border-muted-foreground bg-card': item.name == themeService.theme().color }"
+        class="theme-btn">
+        <span
+          [style.backgroundColor]="item.code"
+          class="mr-1 flex h-5 w-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-rose-500"></span>
+        <p class="capitalize">{{ item.label }}</p>
+      </div>
+      }
+    </div>
   </div>
-  
+
+  <hr class="my-4 border-dashed border-border" />
+
+  <div class="my-2">
+    <span class="text-xs font-semibold text-foreground">{{language.selectMode}}</span>
+    <div class="mt-2 flex gap-2">
+      @for (item of themeMode; track $index) {
+      <div
+        :key="$index"
+        (click)="toggleThemeMode()"
+        [ngClass]="{ 'border-muted-foreground bg-card': item.code == themeService.theme().mode }"
+        class="theme-btn">
+        <svg-icon
+          [src]="item.code == 'light' ? 'assets/icons/heroicons/outline/sun.svg' : 'assets/icons/heroicons/outline/moon.svg'"
+          [svgClass]="'h-5 mr-2 w-5 text-muted-foreground/50'">
+        </svg-icon>
+        <p class="capitalize">{{ item.name }}</p>
+      </div>
+      }
+    </div>
+  </div>
+</div>

@@ -30,7 +30,7 @@
           formControlName="email" />
         <label
           for="email"
-          class="absolute left-1 top-2 z-10 origin-[0] -translate-y-4 scale-95 transform bg-background px-2 text-sm text-muted-foreground duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary">
+          class="label-input">
           {{ language.emailAddress }}
         </label>
       </div>
@@ -50,7 +50,7 @@
           formControlName="password" />
         <label
           for="password"
-          class="absolute left-1 top-2 z-10 origin-[0] -translate-y-4 scale-95 transform bg-background px-2 text-sm text-muted-foreground duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary">
+          class="label-input">
           {{ language.password }}
         </label>
         <span class="absolute right-5 top-2.5 cursor-pointer text-muted-foreground" (click)="togglePasswordTextType()">
@@ -83,7 +83,7 @@
 
   <!-- Submit Button -->
   <div>
-    <app-button full impact="bold" tone="primary" shape="rounded" size="medium">{{ language.signIn }}</app-button>
+    <app-button full impact="bold" tone="primary" shape="rounded" size="medium" routerLink="/dashboard/overview" >{{ language.signIn }}</app-button>
   </div>
 
   <!-- Sign-up -->
