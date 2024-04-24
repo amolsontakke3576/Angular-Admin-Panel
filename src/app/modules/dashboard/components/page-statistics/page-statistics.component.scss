@@ -1,0 +1,40 @@
+.statistics-container {
+    // Added container class to avoid css override issue.
+    @apply pl-0;
+  
+    .stat-section {
+      @apply flex flex-col lg:flex-row lg:divide-x gap-4 lg:items-center;
+  
+      .wrapper {
+        @apply bg-white py-2 px-4 rounded-md;
+        &:not(:first-child) {
+          @apply lg:pl-4;
+        }
+  
+        .icon-circle {
+          @apply flex rounded-full justify-center items-center opacity-95;
+  
+          .icon-wrapper {
+            @apply flex w-9 h-9 p-8 justify-center items-center;
+  
+            i {
+              @apply md:text-base lg:text-lg xl:text-xl;
+            }
+          }
+        }
+  
+        .info-section {
+          @apply flex flex-col gap-1;
+          .count {
+            @apply font-bold text-3xl leading-8;
+
+          }
+  
+          .title {
+            @apply uppercase text-sm leading-4;
+          }
+        }
+      }
+    }
+  }
+  

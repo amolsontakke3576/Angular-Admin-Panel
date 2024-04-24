@@ -1,0 +1,19 @@
+<div class="statistics-container container">
+    <div class="stat-section">
+      <div *ngFor="let stat of statistics" class="wrapper">
+        <div class="flex items-center gap-3">
+          <div class="icon-circle" [class]="stat.className" [pTooltip]="stat.tooltip" tooltipPosition="top">
+            <div class="icon-wrapper"><i [class]="stat.icon"></i></div>
+          </div>
+          <div class="info-section">
+            <h2 *ngIf="!loading" class="count" [class]="stat.className">{{ stat.value || '' }}</h2>
+            <div *ngIf="loading" class="count">
+              <p-skeleton size="2rem" styleClass="mr-2"></p-skeleton>
+            </div>
+            <span class="title">{{ stat.title || '' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
