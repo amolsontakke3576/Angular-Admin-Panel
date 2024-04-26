@@ -9,72 +9,63 @@
 
   <div routerLink="/dashboard">
     <app-button full impact="bold" tone="light" shape="rounded" size="medium">
-      <svg-icon src="assets/icons/google-logo.svg" [svgClass]="'h-6 w-6 mr-2'"> </svg-icon>
+      <i class="pi pi-google mr-2 h-4 w-6 text-primary"> </i>
       {{ language.logInWithGoogle }}
     </app-button>
   </div>
   <div
     class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-muted after:mt-0.5 after:flex-1 after:border-t after:border-muted">
-    <p class="mx-4 mb-0 text-center text-sm text-muted-foreground">  {{ language.or }}</p>
+    <p class="mx-4 mb-0 text-center text-sm text-muted-foreground">{{ language.or }}</p>
   </div>
 
   <div class="space-y-3 text-left">
     <div class="form__group">
       <div class="relative">
-        <input
-          type="text"
-          id="email"
-          [ngClass]="{ 'is__invalid-input': submitted && f['email'].errors }"
-          class="peer block"
-          placeholder=" "
-          formControlName="email" />
-        <label
-          for="email"
-          class="label-input">
-          {{ language.emailAddress }}
-        </label>
+        <p-floatLabel>
+          <input
+            id="email"
+            type="text"
+            pInputText
+            [ngClass]="{ 'is__invalid-input': submitted && form.controls['email'].errors }"
+            class="peer block"
+            formControlName="email"
+            placeholder=" " />
+          <label for="email" class="label-input">{{ language.emailAddress }}</label>
+        </p-floatLabel>
       </div>
-      <div *ngIf="submitted && f['email'].errors" class="is__invalid-error">
-        <div *ngIf="f['email'].errors['required']">{{ language.requiredField }}</div>
-        <div *ngIf="f['email'].errors['email']">{{ language.errorEmail }}</div>
+      <div *ngIf="submitted && form.controls['email'].errors" class="is__invalid-error">
+        <div *ngIf="form.controls['email'].errors['required']">{{ language.requiredField }}</div>
+        <div *ngIf="form.controls['email'].errors['email']">{{ language.errorEmail }}</div>
       </div>
-    </div>,
+    </div>
+    ,
     <div class="form__group">
       <div class="relative">
-        <input
-          [type]="passwordTextType ? 'text' : 'password'"
-          id="password"
-          [ngClass]="{ 'is__invalid-input': submitted && f['email'].errors }"
-          class="peer block"
-          placeholder=" "
-          formControlName="password" />
-        <label
-          for="password"
-          class="label-input">
-          {{ language.password }}
-        </label>
-        <span class="absolute right-5 top-2.5 cursor-pointer text-muted-foreground" (click)="togglePasswordTextType()">
-          <svg-icon
-            [src]="
-              !passwordTextType
-                ? 'assets/icons/heroicons/outline/eye-off.svg'
-                : 'assets/icons/heroicons/outline/eye.svg'
-            "
-            [svgClass]="'h-5 w-5'">
-          </svg-icon>
-        </span>
+        <p-floatLabel>
+          <input
+            id="password"
+            [type]="passwordTextType ? 'text' : 'password'"
+            pInputText
+            [ngClass]="{ 'is__invalid-input': submitted && form.controls['email'].errors }"
+            class="peer block"
+            formControlName="password"
+            placeholder=" " />
+          <label for="password" class="label-input">{{ language.password }}</label>
+          <span
+            class="absolute right-5 top-2.5 cursor-pointer text-muted-foreground"
+            (click)="togglePasswordTextType()">
+            <i class="h-5 w-5" [class]="!passwordTextType ? 'pi pi-eye-slash ' : 'pi pi-eye'"> </i>
+          </span>
+        </p-floatLabel>
       </div>
-      <div *ngIf="submitted && f['password'].errors" class="is__invalid-error">
-        <div *ngIf="f['password'].errors['required']">{{language.requiredField }}</div>
+      <div *ngIf="submitted && form.controls['password'].errors" class="is__invalid-error">
+        <div *ngIf="form.controls['password'].errors['required']">{{ language.requiredField }}</div>
       </div>
     </div>
   </div>
 
   <div class="mb-2 flex items-center justify-between space-x-3">
-    <div class="flex items-center">
-      <input id="remember-me" name="remember-me" type="checkbox" />
-      <label for="remember-me" class="ml-2 block text-sm text-muted-foreground"> {{ language.rememberMe }} </label>
-    </div>
+    <app-checkbox [checkboxLabel]="language.rememberMe"></app-checkbox>
 
     <app-button routerLink="/admin/forgot-password" impact="none" tone="primary" shape="rounded" size="small">
       {{ language.forgotYourPassword }}
@@ -83,7 +74,7 @@
 
   <!-- Submit Button -->
   <div>
-    <app-button full impact="bold" tone="primary" shape="rounded" size="medium" routerLink="/dashboard/overview" >{{ language.signIn }}</app-button>
+    <app-button full impact="bold" tone="primary" shape="rounded" size="medium">{{ language.signIn }}</app-button>
   </div>
 
   <!-- Sign-up -->

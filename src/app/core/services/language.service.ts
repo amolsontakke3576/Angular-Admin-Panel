@@ -6,7 +6,7 @@ import { MARATHI_LANGUAGE_CONSTANTS } from '../languages/marathi';
   providedIn: 'root',
 })
 export class LanguageService {
-  public languageConstants: any = MARATHI_LANGUAGE_CONSTANTS;
+  public languageConstants: any = ENGLISH_LANGUAGE_CONSTANTS;
 
 
   constructor() {}

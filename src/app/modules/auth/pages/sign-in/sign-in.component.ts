@@ -5,57 +5,62 @@ import { NgClass, NgIf } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { LanguageService } from 'src/app/core/services/language.service';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { CheckboxComponent } from 'src/app/shared/components/checkbox/checkbox.component';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, RouterLink, AngularSvgIconModule, NgClass, NgIf, ButtonComponent],
+  imports: [
+    FormsModule,
+    FloatLabelModule,
+    ReactiveFormsModule,
+    RouterLink,
+    AngularSvgIconModule,
+    NgClass,
+    NgIf,
+    ButtonComponent,
+    CheckboxComponent,
+  ],
 })
 export class SignInComponent implements OnInit {
-  form!: FormGroup;
-  submitted = false;
-  passwordTextType!: boolean;
-
+  public form!: FormGroup;
+  public submitted = false;
+  public passwordTextType!: boolean;
   public language: any;
 
   private languageService: LanguageService = inject(LanguageService);
-  private _formBuilder: FormBuilder = inject(FormBuilder);
-  private _router: Router = inject(Router);
+  private formBuilder: FormBuilder = inject(FormBuilder);
+  private router: Router = inject(Router);
 
   constructor() {
     this.language = this.languageService.languageConstants;
   }
 
-  onClick() {
+  public onClick(): void {
     console.log('Button clicked');
   }
 
-  ngOnInit(): void {
-    this.form = this._formBuilder.group({
+  public ngOnInit(): void {
+    this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
   }
 
-  get f() {
-    return this.form.controls;
-  }
-
-  togglePasswordTextType() {
+  public togglePasswordTextType(): void {
     this.passwordTextType = !this.passwordTextType;
   }
 
-  onSubmit() {
+  public onSubmit(): void {
     this.submitted = true;
-    const { email, password } = this.form.value;
-
     // stop here if form is invalid
     if (this.form.invalid) {
       return;
     }
 
-    this._router.navigate(['/']);
+    this.router.navigate(['/dashboard/overview']);
   }
 }

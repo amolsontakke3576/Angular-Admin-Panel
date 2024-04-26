@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { cx } from '../../utils/ckassnames';
+import { ButtonModule } from 'primeng/button';
 
 type ButtonProps = {
   impact: 'bold' | 'light' | 'none';
@@ -12,7 +13,7 @@ type ButtonProps = {
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonModule],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })

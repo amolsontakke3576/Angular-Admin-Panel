@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PageHeaderComponent } from '../page-header/page-header.component';
+import { PageHeaderComponent } from '../../components/page-header/page-header.component';
 import { CardModule } from 'primeng/card';
 import { Statistics } from 'src/app/core/models/overview';
 import { PageStatisticsComponent } from '../../components/page-statistics/page-statistics.component';

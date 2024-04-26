@@ -28,4 +28,11 @@ export const ENGLISH_LANGUAGE_CONSTANTS = {
   violet: 'Violet',
   dark: 'Dark',
   light: 'Light',
+  signUpTrialMsg: 'Lets get started with your 30 day free trial',
+  signUpWithGoogle: 'Sign Up with Google',
+  signUpPasswordWarning: 'Use 8 or more characters with a mix of letters, numbers & symbols.',
+  confirmPassword: 'Confirm Password',
+  acceptThe: 'I Accept the',
+  terms: 'Terms',
+  alreadyHaveAnAccount: 'Already have an Account?',
 };

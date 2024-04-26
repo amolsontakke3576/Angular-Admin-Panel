@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { PageHeaderComponent } from '../page-header/page-header.component';
+import { PageHeaderComponent } from '../../components/page-header/page-header.component';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { AngularSvgIconModule } from 'angular-svg-icon';
