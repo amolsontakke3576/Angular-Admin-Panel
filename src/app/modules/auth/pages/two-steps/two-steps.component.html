@@ -1,11 +1,21 @@
-<form class="my-10 space-y-6">
+<form [formGroup]="form" class="my-10 space-y-6">
   <div class="text-center">
-    <h2 class="mb-1 text-3xl font-semibold text-foreground">{{language.twoStepVerification}}</h2>
-    <p class="text-sm text-muted-foreground">{{language.twoStepVerificationMsg}}</p>
-    <div class="mt-2 text-lg text-muted-foreground">******2289</div>
+    <h2 class="mb-1 text-3xl font-semibold text-foreground">{{ language.mobileSignIn }}</h2>
+    <p *ngIf="!validateOtp" class="text-sm text-muted-foreground">{{ language.mobileSignInMsg }}</p>
+    <p *ngIf="validateOtp" class="text-sm text-muted-foreground">{{ language.enterOtp }}</p>
   </div>
 
-  <div class="grid grid-cols-6">
+  <div *ngIf="!validateOtp">
+    <p-floatLabel>
+      <input id="mobileNo" type="text" pInputText class="peer block" formControlName="mobileNo" placeholder=" " />
+      <label for="mobileNo" class="label-input">{{ language.registeredMobileNo }}</label>
+    </p-floatLabel>
+    <div *ngIf="form.controls['mobileNo'].errors" class="is__invalid-error">
+      <div *ngIf="form.controls['mobileNo'].errors['required']">{{ language.requiredField }}</div>
+    </div>
+  </div>
+
+  <div *ngIf="validateOtp" class="grid grid-cols-6">
     @for (item of inputs; track $index) {
     <input
       placeholder=""
@@ -15,9 +25,30 @@
   </div>
 
   <!-- Submit Button -->
-  <div>
-    <app-button full impact="bold" tone="primary" shape="rounded" size="medium" (buttonClick)="onSubmit()">
-      {{language.submit}}
+  <div class="flex justify-center gap-4">
+    <app-button
+      full
+      *ngIf="validateOtp"
+      impact="bold"
+      tone="primary"
+      shape="rounded"
+      size="medium"
+      (buttonClick)="onSubmit()">
+      {{ language.submit }}
+    </app-button>
+    <app-button
+      *ngIf="!validateOtp"
+      full
+      impact="bold"
+      tone="primary"
+      shape="rounded"
+      size="medium"
+      [disabled]="!form.valid"
+      (buttonClick)="onGetOtp()">
+      {{ language.getOtp }}
+    </app-button>
+    <app-button full impact="bold" tone="light" shape="rounded" size="medium" routerLink="/admin/sign-in">
+      {{ language.cancel }}
     </app-button>
   </div>
 </form>

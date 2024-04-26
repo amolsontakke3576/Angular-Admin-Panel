@@ -13,8 +13,8 @@
       {{ language.logInWithGoogle }}
     </app-button>
   </div>
-  <div
-    class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-muted after:mt-0.5 after:flex-1 after:border-t after:border-muted">
+
+  <div class="divider">
     <p class="mx-4 mb-0 text-center text-sm text-muted-foreground">{{ language.or }}</p>
   </div>
 
@@ -46,7 +46,7 @@
             id="password"
             [type]="passwordTextType ? 'text' : 'password'"
             pInputText
-            [ngClass]="{ 'is__invalid-input': form.controls['email'].errors }"
+            [ngClass]="{ 'is__invalid-input': form.controls['password'].errors }"
             class="peer block"
             formControlName="password"
             placeholder=" " />
@@ -74,15 +74,19 @@
 
   <!-- Submit Button -->
   <div>
-    <app-button
-      full
-      impact="bold"
-      tone="primary"
-      shape="rounded"
-      size="medium"
-      (buttonClick)="onSubmit()"
-      >{{ language.signIn }}</app-button
-    >
+    <app-button full impact="bold" tone="primary" shape="rounded" size="medium" (buttonClick)="onSubmit()">{{
+      language.signIn
+    }}</app-button>
+  </div>
+
+  <div *ngIf="isMobileLogin" class="divider">
+    <p class="mx-4 mb-0 text-center text-sm text-muted-foreground">{{ language.or }}</p>
+  </div>
+
+  <div *ngIf="isMobileLogin" class="mt-2">
+    <app-button routerLink="/admin/sign-in-mobile" impact="none" tone="primary" shape="rounded" size="small">
+      {{ language.signInWithMobileNo }}
+    </app-button>
   </div>
 
   <!-- Sign-up -->

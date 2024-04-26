@@ -7,6 +7,7 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
 import { LanguageService } from 'src/app/core/services/language.service';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { CheckboxComponent } from 'src/app/shared/components/checkbox/checkbox.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-sign-in',
@@ -30,6 +31,7 @@ export class SignInComponent implements OnInit {
   public submitted = false;
   public passwordTextType!: boolean;
   public language: any;
+  public isMobileLogin = environment.loginWithMobileNo;
 
   private languageService: LanguageService = inject(LanguageService);
   private formBuilder: FormBuilder = inject(FormBuilder);

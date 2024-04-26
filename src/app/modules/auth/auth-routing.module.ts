@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'sign-up', component: SignUpComponent },
       { path: 'forgot-password', component: ForgotPasswordComponent },
       { path: 'new-password', component: NewPasswordComponent },
-      { path: 'two-steps', component: TwoStepsComponent },
+      { path: 'sign-in-mobile', component: TwoStepsComponent },
       { path: '**', redirectTo: 'sign-in', pathMatch: 'full' },
     ],
   },
