@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { LanguageService } from 'src/app/core/services/language.service';
 
 @Component({
   selector: 'app-two-steps',
@@ -10,9 +11,18 @@ import { ButtonComponent } from 'src/app/shared/components/button/button.compone
   standalone: true,
   imports: [FormsModule, RouterLink, ButtonComponent],
 })
-export class TwoStepsComponent implements OnInit {
-  constructor() {}
+export class TwoStepsComponent {
+  public language: any;
+
+  private languageService: LanguageService = inject(LanguageService);
+  private router: Router = inject(Router);
+
+  constructor() {
+    this.language = this.languageService.languageConstants;
+  }
   public inputs = Array(6);
 
-  ngOnInit(): void {}
+  public onSubmit(): void {
+    this.router.navigate(['/dashboard']);
+  }
 }

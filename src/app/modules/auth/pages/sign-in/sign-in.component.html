@@ -1,5 +1,5 @@
 <!-- login form -->
-<form class="my-10 space-y-6" [formGroup]="form" (ngSubmit)="onSubmit()">
+<form class="my-10 space-y-6" [formGroup]="form">
   <div class="text-center">
     <h2 class="mb-1 text-3xl font-semibold text-foreground">
       {{ language.helloAgain }} <span class="text-primary">!</span>
@@ -46,7 +46,7 @@
             id="password"
             [type]="passwordTextType ? 'text' : 'password'"
             pInputText
-            [ngClass]="{ 'is__invalid-input': submitted && form.controls['email'].errors }"
+            [ngClass]="{ 'is__invalid-input': form.controls['email'].errors }"
             class="peer block"
             formControlName="password"
             placeholder=" " />
@@ -74,7 +74,15 @@
 
   <!-- Submit Button -->
   <div>
-    <app-button full impact="bold" tone="primary" shape="rounded" size="medium">{{ language.signIn }}</app-button>
+    <app-button
+      full
+      impact="bold"
+      tone="primary"
+      shape="rounded"
+      size="medium"
+      (buttonClick)="onSubmit()"
+      >{{ language.signIn }}</app-button
+    >
   </div>
 
   <!-- Sign-up -->

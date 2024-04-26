@@ -31,6 +31,10 @@
           placeholder=" " />
         <label for="email" class="label-input">{{ language.emailAddress }}</label>
       </p-floatLabel>
+      <div *ngIf="submitted && form.controls['email'].errors" class="is__invalid-error">
+        <div *ngIf="form.controls['email'].errors['required']">{{ language.requiredField }}</div>
+        <div *ngIf="form.controls['email'].errors['email']">{{ language.errorEmail }}</div>
+      </div>
     </div>
     <div class="relative">
       <p-floatLabel>
@@ -38,7 +42,7 @@
           id="password"
           [type]="passwordTextType ? 'text' : 'password'"
           pInputText
-          [ngClass]="{ 'is__invalid-input': submitted && form.controls['email'].errors }"
+          [ngClass]="{ 'is__invalid-input': submitted && form.controls['password'].errors }"
           class="peer block"
           formControlName="password"
           placeholder=" " />
@@ -47,21 +51,26 @@
           <i class="h-5 w-5" [class]="!passwordTextType ? 'pi pi-eye-slash ' : 'pi pi-eye'"> </i>
         </span>
       </p-floatLabel>
+      <div *ngIf="submitted && form.controls['password'].errors" class="is__invalid-error">
+        <div *ngIf="form.controls['password'].errors['required']">{{ language.requiredField }}</div>
+      </div>
     </div>
     <div class="relative">
       <p-floatLabel>
         <input
-          id="password"
-          [type]="passwordTextType ? 'text' : 'password'"
+          id="confirmPassword"
+          type="password"
           pInputText
-          [ngClass]="{ 'is__invalid-input': submitted && form.controls['email'].errors }"
+          [ngClass]="{ 'is__invalid-input': submitted && form.controls['confirmPassword'].errors }"
           class="peer block"
-          formControlName="password"
+          formControlName="confirmPassword"
           placeholder=" " />
-        <label for="password" class="label-input">{{ language.confirmPassword }}</label>
-        <span class="absolute right-5 top-2.5 cursor-pointer text-muted-foreground" (click)="togglePasswordTextType()">
-        </span>
+        <label for="confirmPassword" class="label-input">{{ language.confirmPassword }}</label>
       </p-floatLabel>
+      <div *ngIf="submitted && form.controls['confirmPassword'].errors" class="is__invalid-error">
+        <div *ngIf="form.controls['confirmPassword'].errors['required']">{{ language.requiredField }}</div>
+        <div>{{ language.errorConfirmPassword }}</div>
+      </div>
     </div>
   </div>
 
@@ -75,7 +84,9 @@
 
   <!-- Submit Button -->
   <div>
-    <app-button full impact="bold" tone="primary" shape="rounded" size="medium">{{ language.signUp }}</app-button>
+    <app-button full impact="bold" tone="primary" shape="rounded" size="medium" (buttonClick)="onSubmit()">{{
+      language.signUp
+    }}</app-button>
   </div>
 
   <!-- Sign-up -->

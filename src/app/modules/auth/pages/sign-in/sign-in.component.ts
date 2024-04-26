@@ -56,11 +56,8 @@ export class SignInComponent implements OnInit {
 
   public onSubmit(): void {
     this.submitted = true;
-    // stop here if form is invalid
-    if (this.form.invalid) {
-      return;
+    if (this.form.valid) {
+      this.router.navigate(['/dashboard/overview']);
     }
-
-    this.router.navigate(['/dashboard/overview']);
   }
 }

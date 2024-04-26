@@ -1,7 +1,7 @@
 <form class="my-10 space-y-6">
   <div class="text-center">
-    <h2 class="mb-1 text-3xl font-semibold text-foreground">Two Step Verification</h2>
-    <p class="text-sm text-muted-foreground">Enter the verification code we sent to</p>
+    <h2 class="mb-1 text-3xl font-semibold text-foreground">{{language.twoStepVerification}}</h2>
+    <p class="text-sm text-muted-foreground">{{language.twoStepVerificationMsg}}</p>
     <div class="mt-2 text-lg text-muted-foreground">******2289</div>
   </div>
 
@@ -16,8 +16,8 @@
 
   <!-- Submit Button -->
   <div>
-    <app-button routerLink="/dashboard" full impact="bold" tone="primary" shape="rounded" size="medium">
-      Submit
+    <app-button full impact="bold" tone="primary" shape="rounded" size="medium" (buttonClick)="onSubmit()">
+      {{language.submit}}
     </app-button>
   </div>
 </form>

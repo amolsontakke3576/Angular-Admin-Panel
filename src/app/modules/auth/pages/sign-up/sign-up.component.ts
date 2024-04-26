@@ -26,6 +26,7 @@ export class SignUpComponent implements OnInit {
   public form!: FormGroup;
   public language: any;
   public submitted = false;
+  public con = false;
   public passwordTextType!: boolean;
 
   private languageService: LanguageService = inject(LanguageService);
@@ -44,6 +45,14 @@ export class SignUpComponent implements OnInit {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
     });
+  }
+
+  public onSubmit(): void {
+    this.submitted = true;
+    if (this.form.valid) {
+      this.router.navigate(['/admin/sign-in']);
+    }
   }
 }

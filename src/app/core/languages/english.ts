@@ -35,4 +35,13 @@ export const ENGLISH_LANGUAGE_CONSTANTS = {
   acceptThe: 'I Accept the',
   terms: 'Terms',
   alreadyHaveAnAccount: 'Already have an Account?',
+  errorConfirmPassword: 'Password and Confirm Password are not the same.',
+  forgotPassword: 'Forgot Password',
+  forgotPasswordSubheader: 'Enter your email to reset your password.',
+  submit: 'Submit',
+  cancel: 'Cancel',
+  twoStepVerification: 'Two Step Verification',
+  twoStepVerificationMsg: 'Enter the verification code we sent to ',
+  setupNewPassword: 'Setup New Password',
+  setupNewPasswordSubheader: 'Have you already reset the password ? Sign in',
 };
