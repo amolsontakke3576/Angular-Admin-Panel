@@ -166,3 +166,27 @@
   }
 }
 
+p-toast {
+  .p-toast {
+    .p-toast-message-content {
+      @apply border-none;
+
+      .p-toast-message-icon {
+        svg {
+          width: 1.5rem !important;
+          height: 1.5rem !important;
+        }
+      }
+
+      .p-toast-message-text {
+        .p-toast-summary {
+          @apply text-sm;
+        }
+
+        .p-toast-detail {
+          @apply text-[13px] m-0;
+        }
+      }
+    }
+  }
+}

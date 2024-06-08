@@ -8,6 +8,8 @@ import { LanguageService } from 'src/app/core/services/language.service';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { CheckboxComponent } from 'src/app/shared/components/checkbox/checkbox.component';
 import { environment } from 'src/environments/environment';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-sign-in',
@@ -23,7 +25,7 @@ import { environment } from 'src/environments/environment';
     NgClass,
     NgIf,
     ButtonComponent,
-    CheckboxComponent,
+    CheckboxComponent
   ],
 })
 export class SignInComponent implements OnInit {
@@ -36,13 +38,10 @@ export class SignInComponent implements OnInit {
   private languageService: LanguageService = inject(LanguageService);
   private formBuilder: FormBuilder = inject(FormBuilder);
   private router: Router = inject(Router);
+  private messageService: MessageService = inject(MessageService);
 
   constructor() {
     this.language = this.languageService.languageConstants;
-  }
-
-  public onClick(): void {
-    console.log('Button clicked');
   }
 
   public ngOnInit(): void {
@@ -59,7 +58,18 @@ export class SignInComponent implements OnInit {
   public onSubmit(): void {
     this.submitted = true;
     if (this.form.valid) {
-      this.router.navigate(['/dashboard/overview']);
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, this.form.controls['email'].value, this.form.controls['password'].value)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          this.router.navigate(['/dashboard/overview']);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          this.messageService.add({ severity: 'error', summary: 'Failed to login', detail: errorMessage });
+          // ..
+        });
     }
   }
 }
