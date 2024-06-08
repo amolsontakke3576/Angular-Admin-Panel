@@ -8,9 +8,20 @@
   </div>
 
   <div class="flex justify-center gap-4">
-    <i *ngIf="loginOptions.google" class="pi pi-google login-icon" [title]="language.google" (click)="onGoogleLogin()"> </i>
-    <i *ngIf="loginOptions.facebook" class="pi pi-facebook login-icon" title="language.facebook" (click)="onFacebookLogin()"> </i>
-    <i *ngIf="loginOptions.twitter" class="pi pi-twitter login-icon" title="language.twitter" (click)="onTwitterLogin()"> </i>
+    <i *ngIf="loginOptions.google" class="pi pi-google login-icon" [title]="language.google" (click)="onGoogleLogin()">
+    </i>
+    <i
+      *ngIf="loginOptions.facebook"
+      class="pi pi-facebook login-icon"
+      title="language.facebook"
+      (click)="onFacebookLogin()">
+    </i>
+    <i
+      *ngIf="loginOptions.twitter"
+      class="pi pi-twitter login-icon"
+      title="language.twitter"
+      (click)="onTwitterLogin()">
+    </i>
   </div>
 
   <div *ngIf="loginOptions.google || loginOptions.facebook || loginOptions.twitter" class="divider">
@@ -73,9 +84,16 @@
 
   <!-- Submit Button -->
   <div>
-    <app-button full impact="bold" tone="primary" shape="rounded" size="medium" (buttonClick)="onSubmit()">{{
-      language.signIn
-    }}</app-button>
+    <app-button
+      full
+      impact="bold"
+      tone="primary"
+      shape="rounded"
+      size="medium"
+      [disabled]="!form.valid"
+      (buttonClick)="onSubmit()"
+      >{{ language.signIn }}</app-button
+    >
   </div>
 
   <div *ngIf="loginOptions.mobileNo" class="divider">

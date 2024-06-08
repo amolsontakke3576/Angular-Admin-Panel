@@ -6,17 +6,17 @@
     <p class="text-sm text-muted-foreground">{{ language.signUpTrialMsg }}</p>
   </div>
 
-  <div routerLink="/dashboard">
+  <!-- <div routerLink="/dashboard">
     <app-button full impact="bold" tone="light" shape="rounded" size="medium">
       <i class="pi pi-google mr-2 h-4 w-6 text-primary"> </i>
       {{ language.signUpWithGoogle }}
     </app-button>
-  </div>
+  </div> -->
 
-  <div
+  <!-- <div
     class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-muted after:mt-0.5 after:flex-1 after:border-t after:border-muted">
     <p class="mx-4 mb-0 text-center text-sm text-muted-foreground">{{ language.or }}</p>
-  </div>
+  </div> -->
 
   <div class="grid gap-4 space-y-3 text-left">
     <div class="relative">
@@ -76,7 +76,7 @@
 
   <div class="flex items-center justify-between space-x-3">
     <div class="flex items-center gap-1">
-      <input id="accept-term" name="accept-term" type="checkbox" />
+      <input id="accept-term" formControlName="acceptTerm" name="accept-term" type="checkbox" (click)="onClickTerm()" />
       <label for="accept-term" class="ml-2 block text-sm text-muted-foreground"> {{ language.acceptThe }} </label>
       <app-button impact="none" tone="primary" shape="rounded" size="small">{{ language.terms }} </app-button>
     </div>
@@ -84,9 +84,16 @@
 
   <!-- Submit Button -->
   <div>
-    <app-button full impact="bold" tone="primary" shape="rounded" size="medium" (buttonClick)="onSubmit()">{{
-      language.signUp
-    }}</app-button>
+    <app-button
+      full
+      impact="bold"
+      tone="primary"
+      shape="rounded"
+      size="medium"
+      [disabled]="!validateForm"
+      (buttonClick)="onSubmit()"
+      >{{ language.signUp }}</app-button
+    >
   </div>
 
   <!-- Sign-up -->
