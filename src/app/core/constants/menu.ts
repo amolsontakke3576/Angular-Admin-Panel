@@ -7,7 +7,7 @@ export class Menu {
       separator: false,
       items: [
         {
-          icon: 'assets/icons/heroicons/outline/chart-pie.svg',
+          icon: 'pi pi-chart-pie',
           label: 'Overview',
           route: '/dashboard',
         },
@@ -18,7 +18,7 @@ export class Menu {
       separator: false,
       items: [
         {
-          icon: 'assets/icons/heroicons/outline/cog.svg',
+          icon: 'pi pi-cog',
           label: 'Configurations',
           route: '/dashboard/settings',
           children: [

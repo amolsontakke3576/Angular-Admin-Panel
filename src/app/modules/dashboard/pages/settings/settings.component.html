@@ -30,10 +30,8 @@
         (click)="toggleThemeMode()"
         [ngClass]="{ 'border-muted-foreground bg-card': item.code == themeService.theme().mode }"
         class="theme-btn">
-        <svg-icon
-          [src]="item.code == 'light' ? 'assets/icons/heroicons/outline/sun.svg' : 'assets/icons/heroicons/outline/moon.svg'"
-          [svgClass]="'h-5 mr-2 w-5 text-muted-foreground/50'">
-        </svg-icon>
+        <i *ngIf="item.code == 'light'" class="pi pi-sun mr-2 w-5 text-muted-foreground/50"></i>
+        <i *ngIf="item.code !== 'light'" class="pi pi-moon mr-2 w-5 text-muted-foreground/50"></i>
         <p class="capitalize">{{ item.name }}</p>
       </div>
       }
