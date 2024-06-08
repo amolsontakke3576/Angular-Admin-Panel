@@ -1,4 +1,3 @@
-
 <!-- login form -->
 <form class="my-10 space-y-6" [formGroup]="form">
   <div class="text-center">
@@ -8,14 +7,13 @@
     <p class="text-sm text-muted-foreground">{{ language.enterCredentialMessage }}</p>
   </div>
 
-  <div routerLink="/dashboard">
-    <app-button full impact="bold" tone="light" shape="rounded" size="medium">
-      <i class="pi pi-google mr-2 h-4 w-6 text-primary"> </i>
-      {{ language.logInWithGoogle }}
-    </app-button>
+  <div class="flex justify-center gap-4">
+    <i *ngIf="loginOptions.google" class="pi pi-google login-icon" [title]="language.google" (click)="onGoogleLogin()"> </i>
+    <i *ngIf="loginOptions.facebook" class="pi pi-facebook login-icon" title="language.facebook" (click)="onFacebookLogin()"> </i>
+    <i *ngIf="loginOptions.twitter" class="pi pi-twitter login-icon" title="language.twitter" (click)="onTwitterLogin()"> </i>
   </div>
 
-  <div class="divider">
+  <div *ngIf="loginOptions.google || loginOptions.facebook || loginOptions.twitter" class="divider">
     <p class="mx-4 mb-0 text-center text-sm text-muted-foreground">{{ language.or }}</p>
   </div>
 
@@ -80,11 +78,11 @@
     }}</app-button>
   </div>
 
-  <div *ngIf="isMobileLogin" class="divider">
+  <div *ngIf="loginOptions.mobileNo" class="divider">
     <p class="mx-4 mb-0 text-center text-sm text-muted-foreground">{{ language.or }}</p>
   </div>
 
-  <div *ngIf="isMobileLogin" class="mt-2">
+  <div *ngIf="loginOptions.mobileNo" class="mt-2">
     <app-button routerLink="/admin/sign-in-mobile" impact="none" tone="primary" shape="rounded" size="small">
       {{ language.signInWithMobileNo }}
     </app-button>
@@ -98,4 +96,3 @@
     </app-button>
   </div>
 </form>
-

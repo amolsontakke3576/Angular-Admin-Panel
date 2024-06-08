@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [NgClass, RouterOutlet,ToastModule, ResponsiveHelperComponent],
+  imports: [NgClass, RouterOutlet, ToastModule, ResponsiveHelperComponent],
 })
 export class AppComponent {
   public appJson: any = packageJson;
@@ -25,5 +25,7 @@ export class AppComponent {
     // Initialize Firebase
     const app = initializeApp(environment.firebaseConfig);
     getAnalytics(app);
+
+  
   }
 }

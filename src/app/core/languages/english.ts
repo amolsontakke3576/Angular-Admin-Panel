@@ -48,4 +48,7 @@ export const ENGLISH_LANGUAGE_CONSTANTS = {
   getOtp: 'Get OTP',
   registeredMobileNo: 'Registered Mobile Number',
   enterOtp: 'Enter the OTP that was sent to the registered number',
+  facebook: 'Facebook',
+  Google: 'Google',
+  twitter: 'X (Twitter)',
 };

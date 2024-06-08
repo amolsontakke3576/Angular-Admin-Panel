@@ -1,6 +1,11 @@
 export const environment = {
   production: true,
-  loginWithMobileNo: true,
+  loginOptions: {
+    google: true,
+    facebook: true,
+    twitter: true,
+    mobileNo: true,
+  },
   firebaseConfig: {
     apiKey: "AIzaSyB2mEspjyFxMKy3BCirGPNlk2OVrCejfb8",
     authDomain: "photographers-plus.firebaseapp.com",

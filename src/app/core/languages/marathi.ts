@@ -27,4 +27,5 @@ export const MARATHI_LANGUAGE_CONSTANTS = {
   violet: 'जांभळा',
   dark: 'डार्क',
   light: 'लाइट',
+  
 };

@@ -14,3 +14,7 @@
 .divider {
   @apply my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-muted after:mt-0.5 after:flex-1 after:border-t after:border-muted;
 }
+
+.login-icon {
+  @apply cursor-pointer text-xl text-foreground;
+}
