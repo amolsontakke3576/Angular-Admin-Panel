@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ThemeService } from './core/services/theme.service';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { ResponsiveHelperComponent } from './shared/components/responsive-helper/responsive-helper.component';
 import packageJson from 'package.json';
@@ -21,11 +21,11 @@ export class AppComponent {
   public appJson: any = packageJson;
   title = this.appJson.displayName;
 
+  private router: Router = inject(Router);
+
   constructor(public themeService: ThemeService) {
     // Initialize Firebase
     const app = initializeApp(environment.firebaseConfig);
     getAnalytics(app);
-
-  
   }
 }

@@ -16,7 +16,7 @@ const routes: Routes = [
       { path: 'sign-in', component: SignInComponent, data: { returnUrl: window.location.pathname } },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'forgot-password', component: ForgotPasswordComponent },
-      { path: 'new-password', component: NewPasswordComponent },
+      { path: 'reset-password', component: NewPasswordComponent },
       { path: 'sign-in-mobile', component: TwoStepsComponent },
       { path: '**', redirectTo: 'sign-in', pathMatch: 'full' },
     ],

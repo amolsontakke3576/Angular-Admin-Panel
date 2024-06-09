@@ -51,4 +51,5 @@ export const ENGLISH_LANGUAGE_CONSTANTS = {
   facebook: 'Facebook',
   Google: 'Google',
   twitter: 'X (Twitter)',
+  passwordMinLength: 'Minimum length of characters is 6',
 };
