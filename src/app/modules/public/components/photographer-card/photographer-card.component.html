@@ -1,1 +1,12 @@
-<p>photographer-card works!</p>
+<div class="item-center flex flex-wrap justify-between gap-6">
+  <div *ngFor="let card of photographers" class="card">
+    <div class="top-line"></div>
+    <div class="card-header"></div>
+    <div class="card-body"></div>
+    <div class="card-footer">
+      <app-button full impact="bold" tone="primary" shape="rounded" size="small" (buttonClick)="onViewProfile()"
+        >View Profile</app-button
+      >
+    </div>
+  </div>
+</div>

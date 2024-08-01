@@ -1,6 +1,17 @@
 <div class="home-container">
   <app-header></app-header>
   <app-google-map></app-google-map>
-  <app-photographer-card></app-photographer-card>
+  <div class="my-6 flex flex-wrap items-center justify-center gap-4">
+    
+    <div class="form__group">
+      <div class="relative">
+        <p-floatLabel>
+          <input id="search" type="text" pInputText class="peer block" formControlName="email" placeholder=" " />
+          <label for="email" class="label-input">Search By Name</label>
+        </p-floatLabel>
+      </div>
+    </div>
+  </div>
+  <app-photographer-card [photographers]="photographers"></app-photographer-card>
   <app-footer></app-footer>
 </div>
