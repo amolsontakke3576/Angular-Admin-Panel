@@ -11,10 +11,10 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./modules/public/public.module').then((m) => m.PublicModule),
-  // },
+  {
+    path: '',
+    loadChildren: () => import('./modules/public/public.module').then((m) => m.PublicModule),
+  },
   { path: '**', redirectTo: 'admin' },
   { path: '**', redirectTo: 'error/404' },
 ];
