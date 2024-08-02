@@ -140,7 +140,7 @@
   [multiple],
   textarea,
   select {
-    @apply w-full rounded-md border border-border bg-background px-3 py-3 text-xs text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-primary;
+    @apply w-full rounded-md border border-border bg-background px-3 py-3 text-sm text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-primary;
   }
 
   [type='checkbox'],
@@ -166,6 +166,7 @@
   }
 }
 
+
 p-toast {
   .p-toast {
     .p-toast-message-content {
@@ -187,6 +188,24 @@ p-toast {
           @apply text-[13px] m-0;
         }
       }
+    }
+  }
+}
+
+p-dropdown {
+  .p-dropdown {
+    @apply w-full rounded-md border border-border bg-background px-3 py-1 text-xs text-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-primary;
+
+    .p-dropdown-label {
+      @apply py-2 text-sm leading-4 flex items-center rounded-r-none border-none focus:border-none border-t-0 border-b-0 border-l-0 border-r-0;
+    }
+
+    input.p-inputtext {
+      @apply w-full border-r border border-[#929699] rounded-r-none cursor-text;
+    }
+
+    p-dropdownitem {
+      @apply text-sm;
     }
   }
 }

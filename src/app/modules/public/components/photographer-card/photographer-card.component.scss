@@ -1,12 +1,12 @@
 .card {
-  @apply mb-6 h-[460px] w-[329px] rounded-lg border;
+  @apply mb-6 h-[460px] w-[329px] rounded-lg border border-t-0 border-[#929699] bg-white;
 
   .top-line {
     @apply h-[5px] rounded-tl-lg rounded-tr-lg bg-primary;
   }
 
   .card-header {
-    @apply h-[125px] border-b bg-transparent  px-2 pt-3 text-center;
+    @apply h-[125px] border-b border-[#929699] bg-transparent px-2 pt-3 text-center;
   }
 
   .card-body {
@@ -14,6 +14,14 @@
   }
 
   .card-footer {
-    @apply flex items-center justify-center h-12 rounded-bl-lg rounded-br-lg bg-transparent;
+    @apply flex h-12 items-center justify-center gap-4 rounded-bl-lg rounded-br-lg bg-transparent;
   }
+}
+
+.stacked-cards {
+  @apply relative h-[460px] w-[329px];
+}
+
+.stack {
+  @apply absolute rounded-bl-lg border-b border-t-0 border-[#929699];
 }

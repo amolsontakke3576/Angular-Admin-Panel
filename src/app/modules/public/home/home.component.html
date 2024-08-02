@@ -1,17 +1,23 @@
 <div class="home-container">
   <app-header></app-header>
+
   <app-google-map></app-google-map>
-  <div class="my-6 flex flex-wrap items-center justify-center gap-4">
-    
-    <div class="form__group">
-      <div class="relative">
-        <p-floatLabel>
-          <input id="search" type="text" pInputText class="peer block" formControlName="email" placeholder=" " />
-          <label for="email" class="label-input">Search By Name</label>
-        </p-floatLabel>
-      </div>
+
+  <div [formGroup]="form" class="my-6 flex flex-wrap items-center justify-between gap-4">
+    <div>
+      <input type="text" pInputText formControlName="search" placeholder="Search By Name" />
+    </div>
+    <div class="flex gap-4">
+      <p-dropdown
+        formControlName="type"
+        [options]="photographyTypeOptions"
+        optionLabel="label"
+        placeholder="Select Type" />
+      <p-dropdown formControlName="states" [options]="statesOptions" optionLabel="name" placeholder="Select State" />
     </div>
   </div>
+
   <app-photographer-card [photographers]="photographers"></app-photographer-card>
+
   <app-footer></app-footer>
 </div>

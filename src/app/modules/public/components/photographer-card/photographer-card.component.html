@@ -1,12 +1,68 @@
-<div class="item-center flex flex-wrap justify-between gap-6">
-  <div *ngFor="let card of photographers" class="card">
-    <div class="top-line"></div>
-    <div class="card-header"></div>
-    <div class="card-body"></div>
-    <div class="card-footer">
-      <app-button full impact="bold" tone="primary" shape="rounded" size="small" (buttonClick)="onViewProfile()"
-        >View Profile</app-button
-      >
+<div class="item-center flex flex-wrap justify-center gap-6">
+  <div *ngFor="let card of photographers">
+    <ng-container
+      *ngIf="card && !card.multiCity"
+      [ngTemplateOutlet]="cardTemplate"
+      [ngTemplateOutletContext]="{ className: '', card: card }">
+    </ng-container>
+
+    <div *ngIf="card && card.multiCity" class="stacked-cards">
+      <ng-container
+        [ngTemplateOutlet]="cardTemplate"
+        [ngTemplateOutletContext]="{ className: 'stack top-0 left-0', card: card }">
+        <ng-container
+          [ngTemplateOutlet]="cardSkeleton"
+          [ngTemplateOutletContext]="{ className: 'stack top-1.5 left-1.5' }">
+          <ng-container
+            [ngTemplateOutlet]="cardSkeleton"
+            [ngTemplateOutletContext]="{ className: 'stack top-3 left-3' }"></ng-container>
+        </ng-container>
+      </ng-container>
     </div>
   </div>
 </div>
+
+<ng-template #cardTemplate let-className="className" let-card="card">
+  <div class="card" [ngClass]="className">
+    <div class="top-line"></div>
+    <div class="card-header">
+      <i *ngIf="card.hasVerified" class="pi pi-verified ml-12 mt-1 absolute text-[#8bc34a]" title="Verified"></i>
+      <p-avatar
+        *ngIf="!card.companyLogo || card.companyLogo === ''"
+        [label]="card.companyName.substring(0, 1)"
+        styleClass="mr-2"
+        size="xlarge"
+        shape="circle" />
+      <p-avatar
+        *ngIf="card.companyLogo && card.companyLogo !== ''"
+        [image]="card.companyLogo"
+        styleClass="mr-2"
+        size="xlarge"
+        shape="circle" />
+      <div class="text-xl" [title]="card.companyName">
+        {{ card.companyName }}
+      </div>
+    </div>
+    <div class="card-body"></div>
+    <div class="card-footer">
+      <app-button full impact="bold" tone="primary" shape="rounded" size="small" (buttonClick)="onViewProfile(card)"
+        >View Profile</app-button
+      >
+      <app-button full impact="bold" tone="primary" shape="rounded" size="small" (buttonClick)="onSendEnquiry(card)"
+        >Send Enquiry</app-button
+      >
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #cardSkeleton let-className="className">
+  <div [ngClass]="className" class="card">
+    <div class="top-line"></div>
+
+    <div class="card-header"></div>
+
+    <div class="card-body"></div>
+
+    <div class="card-footer"></div>
+  </div>
+</ng-template>
