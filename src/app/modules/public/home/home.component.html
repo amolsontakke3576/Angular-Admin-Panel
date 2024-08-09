@@ -3,7 +3,21 @@
 
   <app-google-map></app-google-map>
 
-  <div [formGroup]="form" class="my-6 flex flex-wrap items-center justify-between gap-4">
+  <div class="mt-2 flex flex-wrap justify-center gap-2">
+    @for (item of themeColors; track $index) {
+    <div
+      :key="$index"
+      (click)="toggleThemeColor(item.name)"
+      [ngClass]="{ 'border-muted-foreground bg-card': item.name == themeService.theme().color }"
+      class="theme-btn">
+      <span
+        [style.backgroundColor]="item.code"
+        class="mr-1 flex h-5 w-5 shrink-0 -translate-x-1 cursor-pointer items-center justify-center rounded-full bg-rose-500"></span>
+    </div>
+    }
+  </div>
+  
+  <div [formGroup]="form" class="my-4 flex flex-wrap items-center justify-between gap-4">
     <div>
       <input type="text" pInputText formControlName="search" placeholder="Search By Name" />
     </div>

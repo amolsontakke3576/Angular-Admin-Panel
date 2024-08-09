@@ -18,8 +18,9 @@ export class SettingsComponent {
   public themeMode: { name: string; code: string }[];
 
   private languageService: LanguageService = inject(LanguageService);
+  public themeService: ThemeService = inject(ThemeService);
 
-  constructor(public themeService: ThemeService) {
+  constructor() {
     this.language = this.languageService.languageConstants;
     this.themeColors = [
       {
