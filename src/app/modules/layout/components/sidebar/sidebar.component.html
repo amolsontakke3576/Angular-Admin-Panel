@@ -4,16 +4,7 @@
   <div class="px-4">
     <!-- Logo -->
     <div class="relative h-10">
-      <div class="flex items-center" *ngIf="menuService.showSideBar">
-        <a
-          (click)="toggleSidebar()"
-          class="flex cursor-pointer items-center justify-center rounded bg-primary p-2 focus:outline-none focus:ring-1">
-          <svg-icon src="assets/icons/logo.svg"> </svg-icon>
-        </a>
-        <b class="ml-1 pl-2 text-sm font-bold text-foreground">
-          {{  appJson.displayName }}
-        </b>
-      </div>
+      <img src="./assets/images/header-logo.png" alt="photographers Plus" class="h-12" />
       <button
         (click)="toggleSidebar()"
         class="absolute right-2 top-2 flex h-5 w-5 items-center justify-center rounded text-muted-foreground/50 transition-all duration-200 focus:outline-none hover:text-muted-foreground"
@@ -23,7 +14,7 @@
     </div>
 
     <!-- Separator -->
-    <div class="pt-3">
+    <div class="pt-4">
       <hr class="border-dashed border-muted" />
     </div>
 

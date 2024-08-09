@@ -8,6 +8,19 @@ export const PHOTOGRAPHERS = [
     companyName: 'Zenith Studio',
     multiCity: false,
     hasVerified: false,
+    specialization: ['Wedding', 'Anniversary', 'Maternity Shoot', 'Newborn Shoot', 'Fashion & Modelling','Office Event'],
+
+    locations: [
+      {
+        address: 'Shiwaji chouk, Pride Icon',
+        district: 'Pune',
+        state: 'Maharashtra',
+        pin: '412210',
+        mobileNo: 917972122384,
+        latitude: '',
+        longitude: '',
+      },
+    ],
   },
   {
     id: '2',
@@ -18,6 +31,19 @@ export const PHOTOGRAPHERS = [
     companyName: 'Aakash Photography',
     multiCity: true,
     hasVerified: false,
+    specialization: ['Wedding', 'Anniversary', 'Maternity Shoot', 'Newborn Shoot'],
+
+    locations: [
+      {
+        address: 'Shiwaji chouk, Pride Icon',
+        district: 'Dhule',
+        state: 'Maharashtra',
+        pin: '412210',
+        mobileNo: 917972122384,
+        latitude: '',
+        longitude: '',
+      },
+    ],
   },
   {
     id: '1',
@@ -25,9 +51,23 @@ export const PHOTOGRAPHERS = [
     lastName: 'Sontakke',
     email: 'Amol Sontakke',
     phoneNumber: '7972122384',
-    companyName: 'Zenith Studio',
+    companyName: 'Ajinkya Jadhav Photography ',
     multiCity: false,
     hasVerified: false,
+    specialization: ['Wedding', 'Anniversary', 'Newborn Shoot', 'Fashion & Modelling'],
+    website: 'ajinkyajadhav.co.in',
+    locations: [
+      {
+        address: 'Business Square Complex,207 Opp DSK Ranwara, Society, Bavdhan',
+        district: 'Pune',
+        state: 'Maharashtra',
+        pin: '411021',
+        mobileNo: 917972122384,
+        MobileNo: '91 7972122384',
+        latitude: '',
+        longitude: '',
+      },
+    ],
   },
   {
     id: '2',
@@ -38,7 +78,28 @@ export const PHOTOGRAPHERS = [
     companyName: 'Aakash Photography',
     companyLogo: 'https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp',
     multiCity: true,
+    locations: [
+      {
+        address: 'Shiwaji chouk, Pride Icon',
+        district: 'Pune',
+        state: 'Maharashtra',
+        pin: '412210',
+        mobileNo: 917972122384,
+        latitude: '',
+        longitude: '',
+      },
+      {
+        address: 'Shiwaji chouk, Pride Icon',
+        district: 'Mumbai',
+        state: 'Maharashtra',
+        pin: '412210',
+        mobileNo: 917972122384,
+        latitude: '',
+        longitude: '',
+      },
+    ],
     hasVerified: false,
+    specialization: ['Wedding', 'Anniversary', 'Maternity Shoot', 'Newborn Shoot', 'Fashion & Modelling'],
   },
   {
     id: '1',
@@ -49,6 +110,19 @@ export const PHOTOGRAPHERS = [
     companyName: 'Zenith Studio',
     multiCity: false,
     hasVerified: false,
+    specialization: ['Wedding', 'Anniversary', 'Maternity Shoot', 'Newborn Shoot', 'Fashion & Modelling'],
+
+    locations: [
+      {
+        address: 'Shiwaji chouk, Pride Icon',
+        district: 'Amaravati',
+        state: 'Maharashtra',
+        pin: '412210',
+        mobileNo: 917972122384,
+        latitude: '',
+        longitude: '',
+      },
+    ],
   },
   {
     id: '2',
@@ -59,6 +133,17 @@ export const PHOTOGRAPHERS = [
     companyName: 'Aakash Photography',
     multiCity: true,
     hasVerified: true,
+    locations: [
+      {
+        address: 'Shiwaji chouk, Pride Icon',
+        district: 'Latur',
+        state: 'Maharashtra',
+        pin: '412210',
+        mobileNo: 917972122384,
+        latitude: '',
+        longitude: '',
+      },
+    ],
   },
   {
     id: '1',
@@ -70,6 +155,19 @@ export const PHOTOGRAPHERS = [
     companyLogo: 'https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png',
     multiCity: false,
     hasVerified: false,
+    specialization: ['Wedding', 'Anniversary', 'Maternity Shoot', 'Newborn Shoot', 'Fashion & Modelling'],
+
+    locations: [
+      {
+        address: 'Shiwaji chouk, Pride Icon',
+        district: 'Ahmednagar',
+        state: 'Maharashtra',
+        pin: '412210',
+        mobileNo: 917972122384,
+        latitude: '',
+        longitude: '',
+      },
+    ],
   },
   {
     id: '2',
@@ -80,5 +178,18 @@ export const PHOTOGRAPHERS = [
     companyName: 'Aakash Photography',
     multiCity: true,
     hasVerified: false,
+    specialization: ['Wedding', 'Anniversary', 'Maternity Shoot', 'Newborn Shoot', 'Fashion & Modelling'],
+
+    locations: [
+      {
+        address: 'Shiwaji chouk, Pride Icon',
+        district: 'Satara',
+        state: 'Maharashtra',
+        pin: '412210',
+        mobileNo: 917972122384,
+        latitude: '',
+        longitude: '',
+      },
+    ],
   },
 ];

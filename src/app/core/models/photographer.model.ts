@@ -5,14 +5,22 @@ export interface Photographer {
   email: string;
   phoneNumber: string;
   hasVerified: boolean;
-  address?: string;
-  latitude?: string;
-  longitude?: string;
   companyName?: string;
   multiCity: boolean;
   companyLogo?: string;
+  locations: Location[];
   specialization?: string[]; // photography type.
   website?: string;
+}
+
+export interface Location {
+  address: string;
+  district: string;
+  state: string;
+  pin: string;
+  mobileNo: number;
+  latitude?: string;
+  longitude?: string;
 }
 
 export interface PhotographerInfo {

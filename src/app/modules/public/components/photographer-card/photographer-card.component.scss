@@ -14,7 +14,7 @@
   }
 
   .card-footer {
-    @apply flex h-12 items-center justify-center gap-4 rounded-bl-lg rounded-br-lg bg-transparent;
+    @apply flex h-12 items-center border-t border-[#929699] justify-center gap-4 rounded-bl-lg rounded-br-lg bg-transparent;
   }
 }
 

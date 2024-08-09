@@ -26,7 +26,7 @@
   <div class="card" [ngClass]="className">
     <div class="top-line"></div>
     <div class="card-header">
-      <i *ngIf="card.hasVerified" class="pi pi-verified ml-12 mt-1 absolute text-[#8bc34a]" title="Verified"></i>
+      <i *ngIf="card.hasVerified" class="pi pi-verified absolute ml-12 mt-1 text-[#8bc34a]" title="Verified"></i>
       <p-avatar
         *ngIf="!card.companyLogo || card.companyLogo === ''"
         [label]="card.companyName.substring(0, 1)"
@@ -43,9 +43,49 @@
         {{ card.companyName }}
       </div>
     </div>
-    <div class="card-body"></div>
+    <div class="card-body">
+      <div class="flex justify-center gap-2">
+        <app-button
+          full
+          *ngFor="let location of card.locations"
+          impact="bold"
+          tone="primary"
+          shape="rounded"
+          size="small"
+          (buttonClick)="onViewProfile(card)"
+          >{{ location.district }}</app-button
+        >
+      </div>
+      <div class="h-[162px] px-3 py-4 text-center">
+        <div>{{ card.locations[0].address }}</div>
+        <div>{{ card.locations[0].district }}, {{ card.locations[0].state }}</div>
+        <div>PIN: {{ card.locations[0].pin }}</div>
+        <div class="mt-1.5">Mobile: {{ card.locations[0].mobileNo }}</div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 px-3">
+        <ng-container *ngFor="let item of card.specialization; let id = index">
+          <div *ngIf="id <= 4" class="rounded-md border border-[#929699] px-2 py-1 text-xs text-primary">
+            {{ item }}
+          </div>
+          <div
+            *ngIf="id > 4"
+            class="rounded-full font-bold border border-[#929699] px-1.5 py-1 text-center text-xs text-primary">
+            +{{ card.specialization.length - 5 }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
     <div class="card-footer">
-      <app-button full impact="bold" tone="primary" shape="rounded" size="small" (buttonClick)="onViewProfile(card)"
+      <app-button
+        *ngIf="card.website"
+        full
+        impact="bold"
+        tone="primary"
+        shape="rounded"
+        size="small"
+        (buttonClick)="onViewProfile(card)"
         >View Profile</app-button
       >
       <app-button full impact="bold" tone="primary" shape="rounded" size="small" (buttonClick)="onSendEnquiry(card)"
